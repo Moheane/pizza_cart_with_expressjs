@@ -1,21 +1,159 @@
-body {
-	background-color: greenyellow;
-	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.container {
-	margin: auto;
-	background-color: honeydew;
-	width: 80%;
-	padding: 1em;
+:root{
+	--base: #3a86ff;
+	--primary:#8338ec;
+	--tertiary: #ff006e;
+	--secondary: #fb5607;
+	--extra: #ffbe0b;
 }
 
 
-.counter {
-	background-color: lightgray;
-	font-size: 2em;
-	width: 3em;
-	text-align: center;
-	padding: 0.5em;
-	margin-bottom: 0.25em;
+body{
+    background-color: var(--secondary);
+}
+
+img{
+    border-radius: .5em;
+}
+button{
+    border-radius: .4em;
+    margin: 1em;
+    
+}
+ button:hover{
+     background-color: var(--tertiary);
+ }
+
+.small > img{
+    height: auto;
+    width: 40%;
+    border-radius: .5em;
+}
+
+.large > img{
+    height: auto;
+    width: 70%;
+}
+
+.medium > img{
+    height: auto;
+    width: 55%;
+}
+.heading{
+    background-color: var(--primary);
+    margin: 2em;
+    padding: 1em;
+    color: var(--tertiary);
+    font-size: large;
+    font-weight: bold;
+}
+
+.pizza > div{
+    background-color: var(--extra);
+    
+    margin: .5em;
+    padding-top: 1em;
+    border-radius: 10px;
+    
+}
+.pizza{
+    
+}
+
+.contacts{
+    margin: 1em;
+    padding: 1em;
+    background-color: var(--tertiary);
+    
+}
+  
+h3{
+    width: min-content;
+    background-color: var(--tertiary);
+    padding: 1em;
+}
+.pizza{
+    background-color: var(--base);
+    color: var(--tertiary);
+    margin: auto;
+ 
+}
+.cart{
+    background-color: var(--extra);
+    padding: 2em;
+    
+}
+.cart-header{
+    background-color: var(--tertiary);
+}
+.cart-block{
+ background-color: var(--secondary);
+ margin-top: 1em;
+ 
+
+}
+.cart-wrap{
+    background-color: var(--secondary);
+    padding: 1rem;
+    text-align: center;
+}
+
+.cart-div-wrap{
+    display: flex;
+    background-color: var(--tertiary);
+    padding: 1em;
+    border-radius: 1em;
+    
+}
+
+h4{
+    padding-top: 2.4em;
+}
+
+.total{
+    background-color: var(--extra);
+    color: #e0fbfc;
+    font-weight: bold;
+}
+.totalCheckout{
+    color: var(--tertiary);
+}
+.totalpar > span{
+    color: var(--tertiary);
+}
+
+.hidden{
+    display: none;
+}
+
+.intro-order{
+    background-color: var(--primary);
+    color: var(--secondary);
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.message{
+    background-color: yellowgreen;
+   
+}
+.enjoy{
+    font-weight: bolder;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+@media only screen and(min-width: 60em) {
+
+
+
+
+.pizza > div{
+    background-color: var(--extra);
+    
+    margin: .5em;
+    padding: 1em;
+    border-radius: 10px;
+    max-width: 85%;
+}
+
+
 }

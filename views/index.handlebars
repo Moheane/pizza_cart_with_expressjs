@@ -1,15 +1,138 @@
-<h1>Counter Index</h1>
 
+    <div class="">
+        <div class=" heading center">
+            Perfect Pizza
+        </div>
+        <div class="container cart center">
+            <div class="cart-header">
+                <h5>Shopping Cart</h5>
+            </div>
+            <div class="intro-order">
+                <p style="color: aliceblue;">Please make a new order!</p>
+                
+            </div>
+            
+                <div class="container cart-wrap hidden">
+                    <div class="container cart-block cart-div-wrap hidden cart-small">
+                        <i class="fa fa-times-circle small_remove" aria-hidden="true"></i>
+                        <div class="cart-div">
+                            <p>Small</p>
+                            <p>R15</p>
+                            <i class="fa fa-plus-circle small_plus" aria-hidden="true"></i>
+                            <i class="fa fa-minus-circle small_minus" aria-hidden="true"></i> 
+                            <i class="fa fa-refresh refresh_small" aria-hidden="true"></i>
+                         
+                        </div>
+                        <div class="cart-div center">
+                            <h4>Current: R <span class="smallCurrent">0</span></h4>
+                        </div>
+                       
+                    </div>
+                    
+                    <div class="container cart-block cart-div-wrap hidden cart-medium">
+                        <i class="fa fa-times-circle medium_remove" aria-hidden="true"></i>
+                        <div class="cart-div">
+                            <p>Medium</p>
+                            <p>R60</p>
+                            <i class="fa fa-plus-circle medium_plus" aria-hidden="true"></i>
+                            <i class="fa fa-minus-circle medium_minus" aria-hidden="true"></i>
+                            <i class="fa fa-refresh refresh_medium" aria-hidden="true"></i>                          
+                        </div>
+                        <div class="cart-div center">
+                            <h4>Current: R <span class="mediumCurrent med">0</span></h4>
+                        </div>
+                       
+                    </div>
+                    <div class="container cart-block cart-div-wrap hidden cart-large">
+                        <i class="fa fa-times-circle large_remove" aria-hidden="true"></i>
+                        <div class="cart-div">
+                            <p>Large</p>
+                            <p>R99</p>
+                            <i class="fa fa-plus-circle large_plus" aria-hidden="true"></i>
+                            <i class="fa fa-minus-circle large_minus" aria-hidden="true"></i>
+                            <i class="fa fa-refresh refresh_large" aria-hidden="true"></i>                          
+                        </div>
+                        <div class="cart-div center">
+                            <h4>Current: R <span class="largeCurrent">0</span></h4>
+                        </div>
+                       
+                    </div>
+            <div class="total">
+                <p class="totalpar">Total = <span class="totalCkeckout"></span></p>
+            </div>
+            
+                
+            <div class="cart-button">
+                <button class="btn checkout">TOTAL</button>
+            </div>
+            <div class="amount hidden">
+                <label for="amount">Enter the amount</label>
+                <input type="text" name="amount" class="amountTotal">
+            </div>
+            <div class="cart-button">
+                <button class="btn totalBtn hidden">CHECKOUT</button>
+            </div>
+            <div class="message hidden">
+                <p class="enjoy">ENJOY YOUR MEAL!!!</p>
+            </div>
+        </div>
+        <div class="row  center pizza">
+            <div class="col-4 small">
+                <img src="p1.jpg" alt="">
+                <h5>Small</h5>
+                <h2>R45</h2>
+                <p class="container">
+                    <h5>available in:</h5>
+                Steak
+                mutton
+                chicken
+                try out our special sauce pizza which will make you questions your taste buds out of exitement
+                </p>
+                <button class="buyBtnSmall">BUY</button>
+            </div>
+            <div class="col-4 large">
+                <img src="p2.jpg" alt="">
+                <h5>Large</h5>
+                <h2>R68</h2>
+                <p class="div">
+                    <h5>available in:</h5>
+                Steak, 
+                mutton and 
+                chicken
+                try out our special sauce pizza which will make you questions your taste buds out of exitement
+                </p>
+                <button class="buyBtnMedium">BUY</button>
+                
+            </div>
+            <div class="col-4 medium">
+                <img src="p3.jpg" alt="">
+                <h5>Medium</h5>
+                <h2>R99</h2>
+                <p class="div">
+                    <h5>available in:</h5>
+                    
+                    Steak, 
+                    mutton and 
+                    chicken
+                    try out our special sauce pizza which will make you questions your taste buds out of exitement
+                </p>
+                <button class="buyBtnLarge">BUY</button>
+                
+            </div>
+        </div>
+        <div class="contacts center ">
+           
+                <h4>CONTACT</h4>
+            <p>
+                12 Lidney str.
+                Masells
+                8755
+                Johannesburg
+                <a href="">website</a>
+        
+            </p>
 
-<div>
-    Start here
-
-    <form action="/count" method="post">
-        <div class="counter" >
-            {{counter}}
-        </div>    
-        <input type="submit" value="Press button to count">
-    
-    </form>
-
-</div>
+                
+        </div>
+    </div>
+    <script src="/index.js"></script>
