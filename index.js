@@ -24,8 +24,8 @@ app.get('/', function(req, res) {
 	});
 });
 
-app.post('/count', function(req, res) {
-	counter++;
+app.post('/buy', function(req, res) {
+	console.log(req.body)
 	res.redirect('/')
 });
 

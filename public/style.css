@@ -47,7 +47,7 @@ button{
     font-weight: bold;
 }
 
-.pizza > div{
+.pizza > form > div{
     background-color: var(--extra);
     
     margin: .5em;
@@ -146,7 +146,7 @@ h4{
 
 
 
-.pizza > div{
+.pizza > form > div{
     background-color: var(--extra);
     
     margin: .5em;
