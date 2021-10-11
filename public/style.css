@@ -20,7 +20,7 @@ button{
     
 }
  button:hover{
-     background-color: var(--tertiary);
+     background-color: var(--base);
  }
 
 .small > img{

@@ -21,34 +21,43 @@
             </div>
             <div class="2nd">
                 <div>Small</div>
-                <div>Qty</div>
-                <div>R0</div>
-                <div><i class="fa fa-plus-circle small_plus" aria-hidden="true"></i>
-                    <i class="fa fa-minus-circle small_minus" aria-hidden="true"></i>
-                    <i class="fa fa-refresh refresh_small" aria-hidden="true"></i>
+                <div>{{sqt}}</div>
+                <div>R{{small}}</div>
+                <div><form action="/add_small" method="post">
+                    <input type="submit" name="smalladd" value="+">
+                </form>
+                <form action="/minus_small" method="post">
+                    <input type="submit" name="smallminus" value="-">
+                </form>
                 </div>
             </div>
             <div class="3rd">
                 <div>Medium</div>
-                <div>Qty</div>
-                <div>R0</div>
-                <div><i class="fa fa-plus-circle small_plus" aria-hidden="true"></i>
-                    <i class="fa fa-minus-circle small_minus" aria-hidden="true"></i>
-                    <i class="fa fa-refresh refresh_small" aria-hidden="true"></i>
+                <div>{{mqt}}</div>
+                <div>R{{medium}}</div>
+                <div><form action="/add_medium" method="post">
+                    <input type="submit" name="smalladd" value="+">
+                </form>
+                <form action="/minus_medium" method="post">
+                    <input type="submit" name="smallminus" value="-">
+                </form>
                 </div>
             </div>
             <div class="3rd">
             <div>Large</div>
-            <div>Qty</div>
-            <div>R0</div>
-            <div><i class="fa fa-plus-circle small_plus" aria-hidden="true"></i>
-                <i class="fa fa-minus-circle small_minus" aria-hidden="true"></i>
-                <i class="fa fa-refresh refresh_small" aria-hidden="true"></i>
+            <div>{{lqt}}</div>
+            <div>R{{large}}</div>
+            <div><form action="/add_large" method="post">
+                    <input type="submit" name="smalladd" value="+">
+                </form>
+                <form action="/minus_large" method="post">
+                    <input type="submit" name="smallminus" value="-">
+                </form>
             </div>
         </div>
         
 <div class="total">
-    <p class="totalpar center">Total = <span class="totalCkeckout"><span>R0</span></span></p>
+    <p class="totalpar center">Total = <span class="totalCkeckout"><span>R{{gtotal}}</span></span></p>
 </div>
 
 <div class="cart-button ">
@@ -79,7 +88,7 @@
 
 
 <div class="row  center pizza">
-    <form action="buy" method="post">
+    <form action="buyBtn" method="post">
         <div class="col-4 small">
             <img src="p1.jpg" alt="">
             <h5>Small</h5>
@@ -91,7 +100,7 @@
             chicken
             try out our special sauce pizza which will make you questions your taste buds out of exitement
             </p>
-            <button class="buyBtnSmall" name="buy" type="submit" value="smallBtn">BUY</button>
+            <button class="buyBtnSmall" name="buybtn" type="submit" value="smallBtn">BUY</button>
         </div>
         <div class="col-4 large">
             <img src="p2.jpg" alt="">
@@ -104,7 +113,7 @@
             chicken
             try out our special sauce pizza which will make you questions your taste buds out of exitement
             </p>
-            <button class="buyBtnMedium" name="buy" type="submit" value="mediumBtn">BUY</button>
+            <button class="buyBtnMedium" name="buybtn" type="submit" value="mediumBtn">BUY</button>
 
         </div>
         <div class="col-4 medium">
@@ -119,7 +128,7 @@
             chicken
             try out our special sauce pizza which will make you questions your taste buds out of exitement
             </p>
-            <button class="buyBtnLarge" name="buy" type="submit" value="largerBtn">BUY</button>
+            <button class="buyBtnLarge" name="buybtn" type="submit" value="largeBtn">BUY</button>
 
         </div>
     </form>

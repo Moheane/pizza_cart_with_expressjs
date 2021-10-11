@@ -21,17 +21,87 @@ app.set('view engine', 'handlebars');
 
 
 app.get('/', function(req, res) {
-	let buy = ''
+	small = cart.stotal();
+	medium = cart.mtotal();
+	large = cart.ltotal();
+	gtotal = cart.gtotal();
+	sqt = cart.smallqty();
+	mqt = cart.mediumqty();
+	lqt = cart.largeqty();
+	console.log(small)
 	res.render('index', {
-		buy:buy
+		small : small,
+		medium : medium,
+		large: large,
+		gtotal: gtotal,
+		sqt: sqt,
+		mqt: mqt,
+		lqt: lqt
 	});
 });
 
-app.post('/buy', function(req, res) {
-	// remove = cart.buy()
-	let buy = 'hidden'
-	res.redirect('/')
+app.post('/buySmall', function(req, res) {
+	btn = req.body.buybtn
+	cart.buysmall(btn)
+	console.log(cart.buysmall())
+	console.log(btn)
+	
 	// res.render('index', {buy:buy})
+	res.redirect('/')
+});
+
+app.post('/buyMedium', function(req, res) {
+	
+	btn = req.body.buybtn
+	cart.buymedium(btn)
+	console.log(cart.buymedium())
+	
+	//res.render('index', {buy:buy})
+	res.redirect('/')
+});
+
+app.post('/buyLarge', function(req, res) {
+	btn = req.body.buybtn
+	cart.buylarge(btn)
+	console.log(cart.buylarge())
+	
+	//res.render('index', {buy:buy})
+	res.redirect('/')
+});
+
+app.post('/add_small', function(req, res) {
+	cart.addsmall();
+	console.log(cart.buysmall())
+	
+	res.redirect('/')
+});
+
+app.post('/add_medium', function(req, res) {
+	cart.addmedium();
+	console.log(cart.buysmall())
+	
+	res.redirect('/')
+});
+
+app.post('/add_large', function(req, res) {
+	cart.addlarger();
+	
+	res.redirect('/')
+});
+
+app.post('/minus_small', function(req, res) {
+	cart.minussmall();
+	res.redirect('/')
+});
+
+app.post('/minus_medium', function(req, res) {
+	cart.minusmedium();
+	res.redirect('/')
+});
+
+app.post('/minus_large', function(req, res) {
+	cart.minuslarger();
+	res.redirect('/')
 });
 
 
