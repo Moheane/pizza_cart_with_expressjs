@@ -82,21 +82,30 @@ module.exports = function cart() {
         
     }
     function minussmall() {
-        smtotal-=45;
+        if (smtotal>0 || sqty>0) {
+            smtotal-=45;
         grandtotal-=45;
         sqty--;
+        }
+        
         
     }
     function minusmedium(a) {
-        mdtotal -=68;
+        if (mdtotal>0 || mqty>0) {
+            mdtotal -=68;
         grandtotal-=68;
         mqty--;
+        }
+        
         
     }
     function minuslarger(a) {
-        lgtotal-=99;
-        grandtotal-=99;
-        lqty--;
+        if (lgtotal>0 || lqty>0) {
+            lgtotal-=99;
+            grandtotal-=99;
+            lqty--;
+        }
+ 
         
     }
 
