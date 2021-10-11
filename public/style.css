@@ -22,6 +22,9 @@ button{
  button:hover{
      background-color: var(--base);
  }
+ input:hover{
+    background-color: var(--base);
+}
 
 .small > img{
     height: auto;
