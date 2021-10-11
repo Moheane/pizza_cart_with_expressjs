@@ -90,7 +90,7 @@ module.exports = function cart() {
         
         
     }
-    function minusmedium(a) {
+    function minusmedium() {
         if (mdtotal>0 || mqty>0) {
             mdtotal -=68;
         grandtotal-=68;
@@ -99,7 +99,7 @@ module.exports = function cart() {
         
         
     }
-    function minuslarger(a) {
+    function minuslarger() {
         if (lgtotal>0 || lqty>0) {
             lgtotal-=99;
             grandtotal-=99;
