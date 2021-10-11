@@ -1,8 +1,11 @@
 const express = require('express');
 const exphbs  = require('express-handlebars');
+const pcart = require('./pizza-cart')
 
 const app = express();
-const PORT =  process.env.PORT || 3017;
+const PORT =  process.env.PORT || 3019;
+
+const cart = pcart();
 
 // enable the req.body object - to allow us to use HTML forms
 app.use(express.json());
@@ -16,17 +19,19 @@ app.use(express.static('public'));
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
-let counter = 0;
 
 app.get('/', function(req, res) {
+	let buy = ''
 	res.render('index', {
-		counter
+		buy:buy
 	});
 });
 
 app.post('/buy', function(req, res) {
-	console.log(req.body)
+	// remove = cart.buy()
+	let buy = 'hidden'
 	res.redirect('/')
+	// res.render('index', {buy:buy})
 });
 
 
