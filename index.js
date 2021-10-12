@@ -134,6 +134,14 @@ app.post('/minus_large', function(req, res) {
 	res.redirect('/')
 });
 
+app.get('/login', function(req, res) {
+	res.render('login')
+});
+
+app.post('/login', function(req, res) {
+	res.redirect('/')
+});
+
 
 // start  the server and start listening for HTTP request on the PORT number specified...
 app.listen(PORT, function() {
