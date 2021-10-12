@@ -19,7 +19,9 @@ app.use(express.static('public'));
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
-
+var dis1 ='';
+var dis2 ='';
+var dis3 ='';
 app.get('/', function(req, res) {
 	small = cart.stotal();
 	medium = cart.mtotal();
@@ -28,7 +30,10 @@ app.get('/', function(req, res) {
 	sqt = cart.smallqty();
 	mqt = cart.mediumqty();
 	lqt = cart.largeqty();
-	console.log(small)
+	hid = cart.hidev();
+	// disable = cart.disablingv();
+
+	
 	res.render('index', {
 		small : small,
 		medium : medium,
@@ -36,49 +41,74 @@ app.get('/', function(req, res) {
 		gtotal: gtotal,
 		sqt: sqt,
 		mqt: mqt,
-		lqt: lqt
+		lqt: lqt,
+		hid: hid,
+		// disable: disable
+		dis1: dis1,
+		dis2: dis2,
+		dis3: dis3,
 	});
 });
 
-app.post('/buySmall', function(req, res) {
-	btn = req.body.buybtn
-	cart.buysmall(btn)
-	console.log(cart.buysmall())
+app.post('/buyaction', function(req, res) {
+	btn = req.body.buybtn;
+	hide = '';
 	console.log(btn)
 	
-	// res.render('index', {buy:buy})
+	if (btn === 'smallBtn') {
+		dis1 = 'disabled'
+		cart.hiderem();
+		cart.addsmall();
+		
+	}
+	else if (btn === 'mediumBtn') {
+		dis2 = 'disabled'
+		cart.hiderem()
+		cart.addmedium();
+		
+		
+	} else if (btn === 'largeBtn') {
+		dis3 = 'disabled'
+		cart.hiderem()
+		cart.addlarger();
+		
+	} else {
+		
+	} {
+		
+	}
 	res.redirect('/')
 });
 
-app.post('/buyMedium', function(req, res) {
+// app.post('/buyMedium', function(req, res) {
 	
-	btn = req.body.buybtn
-	cart.buymedium(btn)
-	console.log(cart.buymedium())
+// 	btn = req.body.buybtn
+// 	cart.buymedium(btn)
+// 	console.log(cart.buymedium())
 	
-	//res.render('index', {buy:buy})
-	res.redirect('/')
-});
+// 	//res.render('index', {buy:buy})
+// 	res.redirect('/')
+// });
 
-app.post('/buyLarge', function(req, res) {
-	btn = req.body.buybtn
-	cart.buylarge(btn)
-	console.log(cart.buylarge())
+// app.post('/buyLarge', function(req, res) {
+// 	btn = req.body.buybtn
+// 	cart.buylarge(btn)
+// 	console.log(cart.buylarge())
 	
-	//res.render('index', {buy:buy})
-	res.redirect('/')
-});
+// 	//res.render('index', {buy:buy})
+// 	res.redirect('/')
+// });
 
 app.post('/add_small', function(req, res) {
 	cart.addsmall();
-	console.log(cart.buysmall())
+	// console.log(cart.buysmall())
 	
 	res.redirect('/')
 });
 
 app.post('/add_medium', function(req, res) {
 	cart.addmedium();
-	console.log(cart.buysmall())
+	// console.log(cart.buysmall())
 	
 	res.redirect('/')
 });

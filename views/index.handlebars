@@ -12,7 +12,7 @@
 
         </div> --}}
 
-        <div class="container cart-wrap">
+        <div class="container cart-wrap {{hid}}">
             <div class="headingC" style="background-color: #8338ec ;">
                 <div>TYPE</div>
                 <div>QTY</div>
@@ -71,14 +71,14 @@
 
 
 
-<div class="amount hidden">
+<div class="amount hide">
     <label for="amount">Enter the amount</label>
     <input type="text" name="amount" class="amountTotal">
 </div>
-<div class="cart-button">
-    <button class="btn totalBtn hidden">CHECKOUT</button>
+<div class="cart-button hide">
+    <button class="btn totalBtn hide">CHECKOUT</button>
 </div>
-<div class="message hidden">
+<div class="message hide">
     <p class="enjoy">ENJOY YOUR MEAL!!!</p>
 </div>
 </div>
@@ -88,7 +88,7 @@
 
 
 <div class="row  center pizza">
-    <form action="buyBtn" method="post">
+    <form action="/buyaction" method="post">
         <div class="col-4 small">
             <img src="p1.jpg" alt="">
             <h5>Small</h5>
@@ -100,7 +100,7 @@
             chicken
             try out our special sauce pizza which will make you questions your taste buds out of exitement
             </p>
-            <button class="buyBtnSmall" name="buybtn" type="submit" value="smallBtn">BUY</button>
+            <button class="buyBtnSmall" name="buybtn" {{dis1}} type="submit" value="smallBtn">BUY</button>
         </div>
         <div class="col-4 large">
             <img src="p2.jpg" alt="">
@@ -113,7 +113,7 @@
             chicken
             try out our special sauce pizza which will make you questions your taste buds out of exitement
             </p>
-            <button class="buyBtnMedium" name="buybtn" type="submit" value="mediumBtn">BUY</button>
+            <button class="buyBtnMedium" name="buybtn" {{dis2}} type="submit" value="mediumBtn">BUY</button>
 
         </div>
         <div class="col-4 medium">
@@ -128,7 +128,7 @@
             chicken
             try out our special sauce pizza which will make you questions your taste buds out of exitement
             </p>
-            <button class="buyBtnLarge" name="buybtn" type="submit" value="largeBtn">BUY</button>
+            <button class="buyBtnLarge" name="buybtn" {{dis3}} type="submit" value="largeBtn">BUY</button>
 
         </div>
     </form>

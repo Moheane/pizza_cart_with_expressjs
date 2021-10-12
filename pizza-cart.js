@@ -6,10 +6,40 @@ module.exports = function cart() {
     var sqty = 0;
     var mqty = 0;
     var lqty = 0;
+    var toogle = 'hide';
+    // var dis = '';
 
-    function buysmall(a) {
+    function hide() {
+        toogle = 'hide'
 
     }
+
+    function hiderem() {
+        toogle = ''
+
+    }
+    function hideremv() {
+        toogle = ''
+
+    }
+    function hidev() {
+        
+        return toogle
+
+    }
+
+    // function disabling() {
+        
+    //     dis = 'disabled'
+
+    // }
+    // function disablingv() {
+        
+    //     return dis
+
+    // }
+
+
     function buymedium(a) {
         // mediump =0;
         // return mediump; 
@@ -112,7 +142,12 @@ module.exports = function cart() {
 
  
     return{
-        buysmall,
+        hide,
+        hidev,
+        hiderem,
+        hideremv,
+        // disabling,
+        // disablingv,
         buymedium,
         buylarge,
         addsmall,

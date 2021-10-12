@@ -153,7 +153,7 @@ h4{
     color: var(--tertiary);
 }
 
-.hidden{
+.hide{
     display: none;
 }
 
