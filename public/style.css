@@ -34,12 +34,12 @@ button{
 
 .large > img{
     height: auto;
-    width: 70%;
+    width: 55%;
 }
 
 .medium > img{
     height: auto;
-    width: 55%;
+    width: 70%;
 }
 .heading{
     background-color: var(--primary);
