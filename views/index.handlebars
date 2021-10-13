@@ -1,11 +1,4 @@
-<div class="">
-        
-		<ul>
-		<a href=""><li>HOME</li></a>
-		<a href=""><li>LOGOUT</li></a>
-	</ul>
-	
-    </div>
+
 <div class="">
     
     <div class=" m-1 p-1 cart center">
@@ -61,28 +54,20 @@
             </div>
         </div>
         
-<div class="total">
+<form action="/order" method="post">
+    <div class="total">
     <p class="totalpar center">Total = <span class="totalCkeckout"><span>R{{gtotal}}</span></span></p>
 </div>
 
 <div class="cart-button ">
-    <button class="btn checkout center">CHECKOUT</button>
+    <button class="btn checkout center" type="submit">CHECKOUT</button>
+</div>
+</form>
+
+
+
 </div>
 
-
-
-</div>
-
-
-
-
-<div class="amount hide">
-    <label for="amount">Enter the amount</label>
-    <input type="text" name="amount" class="amountTotal">
-</div>
-<div class="cart-button hide">
-    <button class="btn totalBtn hide">CHECKOUT</button>
-</div>
 <div class="message hide">
     <p class="enjoy">ENJOY YOUR MEAL!!!</p>
 </div>

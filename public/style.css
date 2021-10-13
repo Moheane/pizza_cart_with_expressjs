@@ -183,7 +183,25 @@ h4{
     margin: 1em;
     padding: 1em;
 } */
-
+.order{
+    background-color: var(--tertiary);
+}
+.order > form > div{
+    padding: 1rem;
+    margin: 1.kem;
+}
+.carttable{
+    text-align: center;
+    background-color: var(--extra);
+}
+td{
+    margin: 1em;
+    padding: 0px 5px 0px 5px;
+    
+}
+.order_head{
+    background-color: var(--primary);
+}
 ul{
     display: flex;
     list-style: none;

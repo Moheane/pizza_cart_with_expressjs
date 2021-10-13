@@ -134,6 +134,12 @@ app.post('/minus_large', function(req, res) {
 	res.redirect('/')
 });
 
+
+app.post('/order', function(req, res) {
+	console.log('order page')
+	res.render('order')
+});
+
 app.get('/login', function(req, res) {
 	res.render('login')
 });
