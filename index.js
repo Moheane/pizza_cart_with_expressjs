@@ -1,8 +1,15 @@
 const express = require('express');
 const exphbs  = require('express-handlebars');
 const pcart = require('./pizza-cart')
+var session = require('express-session')
 
 const app = express();
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true
+}))
+
 const PORT =  process.env.PORT || 3019;
 
 const cart = pcart();
@@ -23,7 +30,8 @@ var dis1 ='';
 var dis2 ='';
 var dis3 ='';
 app.get('/', function(req, res) {
-	small = cart.stotal();
+	if (req.session.username) {
+		small = cart.stotal();
 	medium = cart.mtotal();
 	large = cart.ltotal();
 	gtotal = cart.gtotal();
@@ -48,6 +56,10 @@ app.get('/', function(req, res) {
 		dis2: dis2,
 		dis3: dis3,
 	});
+	} else {
+		res.redirect('/login')
+	}
+	
 });
 
 app.post('/buyaction', function(req, res) {
@@ -145,7 +157,17 @@ app.get('/login', function(req, res) {
 });
 
 app.post('/login', function(req, res) {
-	res.redirect('/')
+	if (req.body.username) {
+		req.session.username = req.body.username 
+		res.redirect('/')
+		console.log(req.body.username)
+		console.log(req.session.username)
+	} else {
+		res.redirect('/login')
+		console.log(req.body.username)
+		console.log(req.session.username)
+	}
+	
 });
 
 
