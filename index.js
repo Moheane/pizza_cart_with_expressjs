@@ -1,7 +1,9 @@
 const express = require('express');
 const exphbs  = require('express-handlebars');
 const pcart = require('./pizza-cart')
-var session = require('express-session')
+const session = require('express-session')
+const sqlite3 = require('sqlite3');
+const { open } = require('sqlite');
 
 const app = express();
 app.use(session({
@@ -29,7 +31,21 @@ app.set('view engine', 'handlebars');
 var dis1 ='';
 var dis2 ='';
 var dis3 ='';
-app.get('/', function(req, res) {
+
+open({
+	filename: './data.db',
+	driver: sqlite3.Database
+}).then(async function (db) {
+
+	// run migrations
+
+	await db.migrate();
+
+	// only setup the routes once the database connection has been established
+	
+app.get('/', async function(req, res) {
+	a = await db.all('select * from orderTable')
+	console.log(a)
 	var setsession = req.session.username
 	if (setsession) {
 		small = cart.stotal();
@@ -94,25 +110,6 @@ app.post('/buyaction', function(req, res) {
 	res.redirect('/')
 });
 
-// app.post('/buyMedium', function(req, res) {
-	
-// 	btn = req.body.buybtn
-// 	cart.buymedium(btn)
-// 	console.log(cart.buymedium())
-	
-// 	//res.render('index', {buy:buy})
-// 	res.redirect('/')
-// });
-
-// app.post('/buyLarge', function(req, res) {
-// 	btn = req.body.buybtn
-// 	cart.buylarge(btn)
-// 	console.log(cart.buylarge())
-	
-// 	//res.render('index', {buy:buy})
-// 	res.redirect('/')
-// });
-
 app.post('/add_small', function(req, res) {
 	cart.addsmall();
 	// console.log(cart.buysmall())
@@ -149,11 +146,15 @@ app.post('/minus_large', function(req, res) {
 });
 
 
+// app.get('/order', function(req, res) {
+// 	console.log('order page get')
+// 	res.render('order')
+// });
 app.post('/order', function(req, res) {
-	console.log('order page')
-	res.render('order')
+	data = await 	
+	res.render('order', data)
+	
 });
-
 app.get('/logout', function(req, res) {
 	req.session.destroy(function(err){  
         if(err){  
@@ -183,6 +184,9 @@ app.post('/login', function(req, res) {
 	}
 	
 });
+
+
+})
 
 
 // start  the server and start listening for HTTP request on the PORT number specified...
