@@ -30,7 +30,8 @@ var dis1 ='';
 var dis2 ='';
 var dis3 ='';
 app.get('/', function(req, res) {
-	if (req.session.username) {
+	var setsession = req.session.username
+	if (setsession) {
 		small = cart.stotal();
 	medium = cart.mtotal();
 	large = cart.ltotal();
@@ -55,6 +56,7 @@ app.get('/', function(req, res) {
 		dis1: dis1,
 		dis2: dis2,
 		dis3: dis3,
+		setsession: setsession
 	});
 	} else {
 		res.redirect('/login')
