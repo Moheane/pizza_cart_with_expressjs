@@ -7,7 +7,9 @@ module.exports = function cart() {
     var mqty = 0;
     var lqty = 0;
     var toogle = 'hide';
+    let orderlist = [];
     // var dis = '';
+
 
     function hide() {
         toogle = 'hide'
@@ -138,6 +140,28 @@ module.exports = function cart() {
  
         
     }
+    function clearcart() {
+        grandtotal =0;
+        smtotal=0;
+        mdtotal =0;
+        lgtotal = 0;
+        sqty = 0;
+        mqty = 0;
+        lqty = 0;
+        
+    }
+    function orderregister() {
+        orderlist.push({
+            id: 1,
+            amount: gtotal(),
+            status: 'pay'
+        })
+        
+    }
+
+    function orderlisting() {
+        return orderlist
+    }
 
 
  
@@ -162,6 +186,9 @@ module.exports = function cart() {
         gtotal,
         smallqty,
         mediumqty,
-        largeqty
+        largeqty,
+        clearcart,
+        orderregister,
+        orderlisting
     }
 }

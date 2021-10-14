@@ -44,8 +44,8 @@ open({
 	// only setup the routes once the database connection has been established
 	
 app.get('/', async function(req, res) {
-	a = await db.all('select * from orderTable')
-	console.log(a)
+	// a = await db.all('select * from orderTable')
+	// console.log(a)
 	var setsession = req.session.username
 	if (setsession) {
 		small = cart.stotal();
@@ -150,11 +150,21 @@ app.post('/minus_large', function(req, res) {
 // 	console.log('order page get')
 // 	res.render('order')
 // });
+
 app.post('/order', function(req, res) {
-	data = await 	
-	res.render('order', data)
+	
+	 cart.orderregister()	
+	res.redirect('/order')
 	
 });
+
+app.get('/order', function(req, res) {
+	data = cart.orderlisting()
+	console.log(data)	
+   res.render('order', data)
+   
+});
+
 app.get('/logout', function(req, res) {
 	req.session.destroy(function(err){  
         if(err){  
@@ -184,6 +194,12 @@ app.post('/login', function(req, res) {
 	}
 	
 });
+
+app.post('/refresh', function(req, res) {
+	cart.clearcart()
+	res.redirect('/')
+});
+
 
 
 })

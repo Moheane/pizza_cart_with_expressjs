@@ -4,18 +4,22 @@
         <table class="center">
             <thead class="order_head">
                 <tr >
-                    <td>Status</td>
+                    <td>Id</td>
                     <td>Amont</td>
                     <td>Action</td>
                 </tr>
             </thead>
             <tbody>
+                {{#each data}}
                 <tr>
-                    <td>Paid</td>
-                    <td>R35</td>
-                    <td><input class="orderbtn" type="submit" value="Collect"></td>
+        
+                    <td>{{id}}</td>
+                    <td>{{amount}}</td>
+                    <td><input class="orderbtn" type="submit" value="{{status}}"></td>
                 </tr>
+                {{/each}}
             </tbody>
+            
         </table>
     </div>
    </form>
