@@ -33,7 +33,7 @@ var dis2 ='';
 var dis3 ='';
 
 open({
-	filename: './data.db',
+	filename: './sqlite.db',
 	driver: sqlite3.Database
 }).then(async function (db) {
 
@@ -44,8 +44,8 @@ open({
 	// only setup the routes once the database connection has been established
 	
 app.get('/', async function(req, res) {
-	// a = await db.all('select * from orderTable')
-	// console.log(a)
+	a = await db.all('select * from orderTable')
+	console.log(a)
 	var setsession = req.session.username
 	if (setsession) {
 		small = cart.stotal();

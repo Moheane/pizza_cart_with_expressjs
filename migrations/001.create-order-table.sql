@@ -4,5 +4,7 @@ create table orderTable (
     payment text not null
 );
 
-insert into orderTable(order_status, payment )
+insert into orderTable(order_id, order_status, payment )
  values (2,'payment', '200');
+
+ 
