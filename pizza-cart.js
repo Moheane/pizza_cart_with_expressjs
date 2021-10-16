@@ -7,7 +7,9 @@ module.exports = function cart() {
     var mqty = 0;
     var lqty = 0;
     var toogle = 'hide';
+    var toogles = '';
     let orderlist = [];
+    let payString ='pay';
     // var dis = '';
 
 
@@ -18,6 +20,16 @@ module.exports = function cart() {
 
     function hiderem() {
         toogle = ''
+
+    }
+
+    function showbtn() {
+        toogles = 'hide'
+
+    }
+
+    function getshowbtn() {
+        return toogles
 
     }
     function hideremv() {
@@ -151,16 +163,31 @@ module.exports = function cart() {
         
     }
     function orderregister() {
-        orderlist.push({
-            id: 1,
-            amount: gtotal(),
-            status: 'pay'
-        })
+        // orderlist.push({
+        //     id: 1,
+        //     amount: gtotal(),
+        //     status: 'pay'
+        // })
         
     }
 
     function orderlisting() {
         return orderlist
+    }
+
+    function payingstring() {
+        if (payString === '') {
+            payString = 'pay'
+        } else if (payString === 'pay') {
+            payString = 'collect'
+        }
+        else if (payString === 'collect') {
+            payString = ''
+        }
+    }
+
+    function getpayingstring() {
+        return payString
     }
 
 
@@ -189,6 +216,10 @@ module.exports = function cart() {
         largeqty,
         clearcart,
         orderregister,
-        orderlisting
+        orderlisting,
+        payingstring,
+        getpayingstring,
+        showbtn,
+        getshowbtn
     }
 }

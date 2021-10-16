@@ -1,5 +1,5 @@
 <div class="order container center m-3 p-3">
-    <form action="/" method="get">
+    <form action="/orderaction/59" method="post">
     <div class="carttable ">
         <table class="center">
             <thead class="order_head">
@@ -15,7 +15,7 @@
         
                     <td>{{order_id}}</td>
                     <td>{{payment}}</td>
-                    <td><input class="orderbtn" type="submit" value="{{order_status}}"></td>
+                    <td ><input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="{{@root.pays}}"></td>
                 </tr>
                 {{/each}}
             </tbody>
