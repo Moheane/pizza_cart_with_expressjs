@@ -18,7 +18,7 @@ const cart = pcart();
 
 // enable the req.body object - to allow us to use HTML forms
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 // enable the static folder...
 app.use(express.static('public'));
@@ -33,7 +33,7 @@ var dis2 ='';
 var dis3 ='';
 
 open({
-	filename: './sqlite.db',
+	filename: './sqlit.db',
 	driver: sqlite3.Database
 }).then(async function (db) {
 
@@ -44,8 +44,8 @@ open({
 	// only setup the routes once the database connection has been established
 	
 app.get('/', async function(req, res) {
-	a = await db.all('select * from orderTable')
-	console.log(a)
+	orders = await db.all('select * from ordertbable')
+	console.log(orders)
 	var setsession = req.session.username
 	if (setsession) {
 		small = cart.stotal();
@@ -151,17 +151,25 @@ app.post('/minus_large', function(req, res) {
 // 	res.render('order')
 // });
 
-app.post('/order', function(req, res) {
-	
-	 cart.orderregister()	
+app.post('/order', async function(req, res) {
+	d1 = req.body.gtotal
+	let payment = 'payment'
+	let username = req.session.username
+	console.log(username)
+	a = await db.run('insert into ordertbable(username, order_status, payment) values (?, ?, ?)',username,payment,d1)
+	cart.orderregister()	
 	res.redirect('/order')
 	
 });
 
-app.get('/order', function(req, res) {
-	data = cart.orderlisting()
-	console.log(data)	
-   res.render('order', data)
+app.get('/order', async function(req, res) {
+	orders = await db.all('select * from ordertbable where username = ?', req.session.username)
+	console.log(orders)
+	// data = cart.orderlisting()
+	// console.log(data)	
+   res.render('order',{
+	   orders:orders
+   })
    
 });
 

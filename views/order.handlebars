@@ -10,12 +10,12 @@
                 </tr>
             </thead>
             <tbody>
-                {{#each data}}
+                {{#each orders}}
                 <tr>
         
-                    <td>{{id}}</td>
-                    <td>{{amount}}</td>
-                    <td><input class="orderbtn" type="submit" value="{{status}}"></td>
+                    <td>{{order_id}}</td>
+                    <td>{{payment}}</td>
+                    <td><input class="orderbtn" type="submit" value="{{order_status}}"></td>
                 </tr>
                 {{/each}}
             </tbody>

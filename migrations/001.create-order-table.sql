@@ -1,10 +1,9 @@
-create table orderTable (
-	order_id integer primary key,
-	order_status text not null,
-    payment text not null
-);
+-- CREATE TABLE ordertbable(
+--    order_id INTEGER PRIMARY KEY AUTOINCREMENT,
+--    username            TEXT       NOT NULL,
+--    order_status        TEXT       NOT NULL,
+--    payment         CHAR(50)
+-- );
 
-insert into orderTable(order_id, order_status, payment )
- values (2,'payment', '200');
-
- 
+-- INSERT INTO ordertbable (username,order_status,payment)
+-- VALUES ( 'User101', 'pay',2000.00 );
