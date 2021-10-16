@@ -142,7 +142,8 @@ open({
   // });
 
   app.post("/order", async function (req, res) {
-    d1 = req.body.gtotal;
+    if (req.session.username) {
+		d1 = req.body.gtotal;
     let payment = cart.getpayingstring();
 
     let username = req.session.username;
@@ -155,10 +156,14 @@ open({
     );
     cart.orderregister();
     res.redirect("/order");
+	}else{
+		res.redirect('/')
+	}
   });
 
   app.get("/order", async function (req, res) {
-    pays = cart.getpayingstring();
+    if (req.session) {
+		pays = cart.getpayingstring();
     hide = cart.getshowbtn();
     orders = await db.all(
       "select * from ordertbable where username = ?",
@@ -171,6 +176,9 @@ open({
       pays: pays,
       hide: hide,
     });
+	} else{
+		res.redirect('login')
+	}
   });
 
   app.get("/logout", function (req, res) {
