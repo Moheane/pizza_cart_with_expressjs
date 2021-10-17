@@ -45,7 +45,7 @@ button{
     background-color: var(--primary);
     margin: 2em;
     padding: 1em;
-    color: var(--tertiary);
+    color: var(--extra);
     font-size: large;
     font-weight: bold;
 }
@@ -85,7 +85,8 @@ h3{
     padding: 2em;
     
 }
-.cart-header{
+.cart-header > h5{
+    color: var(--extra);
     background-color: var(--secondary);
 }
 .cart-block{

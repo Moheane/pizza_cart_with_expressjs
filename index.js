@@ -157,12 +157,12 @@ open({
     cart.orderregister();
     res.redirect("/order");
 	}else{
-		res.redirect('/')
+		res.redirect('/login')
 	}
   });
 
   app.get("/order", async function (req, res) {
-    if (req.session) {
+    if (req.session.username) {
 		pays = cart.getpayingstring();
     hide = cart.getshowbtn();
     orders = await db.all(
@@ -177,7 +177,7 @@ open({
       hide: hide,
     });
 	} else{
-		res.redirect('login')
+		res.redirect('/login')
 	}
   });
 
@@ -214,7 +214,8 @@ open({
   });
 
   app.post("/orderaction/:id", async function (req, res) {
-    dataform = req.params.id;
+    if (req.session.username) {
+		dataform = req.params.id;
 	bc = await db.get(
         "select order_id from ordertbable where order_id =?", 59
       );
@@ -239,6 +240,9 @@ open({
     // cart.payingstring()
     // console.log('pay button page ' + a)
     res.redirect("/order");
+	} else {
+		res.session.username
+	}
   });
 });
 
