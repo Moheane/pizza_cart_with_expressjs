@@ -182,7 +182,7 @@ module.exports = function cart() {
             payString = 'collect'
         }
         else if (payString === 'collect') {
-            payString = ''
+            payString = 'collected'
         }
     }
 
