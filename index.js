@@ -225,40 +225,37 @@ open({
 	var dvalue = req.params.id
 	console.log(dvalue)
 	  
-    // if (req.session.username) {
+    if (req.session.username) {
+
+		bc = await db.get(
+			"select order_status from ordertbable where order_id =?", dvalue
+		);
+		console.log(bc.order_status)
+
+
+		if (bc.order_status === "pay") {
+
+		results = await db.run(
+			"update ordertbable set order_status=? where order_id =?",
+			'collect',dvalue
+		);
+
+		console.log(results)
+		console.log('button is: pay')
+		} else if (bc.order_status === "collect") {
+			results = await db.run(
+				"update ordertbable set order_status=? where order_id =?",
+				'collected',dvalue
+			);
 		
+			console.log(results)
+			console.log('button is: collect')
+		}
 
-
-	// 	cart.payingstring()
-	// 	bc = await db.get(
-	// 		"select order_id from ordertbable where order_id =?", 59
-	// 	);
-	// 	if (req.body.orderbtn === "pay") {
-	// 		cart.payingstring()
-	// 	console.log(dataform+ "pressed pay id " + bc);
-	// 	results = await db.exec(
-	// 		"update ordertbable set order_status=? where order_id =?",
-	// 		"collect",
-	// 		dataform
-	// 	);
-	// 	} else if (req.body.orderbtn === "collect") {
-	// 		cart.payingstring()
-	// 	console.log("pressed collect");
-	// 	results = await db.exec(
-	// 		"update ordertbable set order_status=? where order_id =?",
-	// 		"collect",
-	// 		dataform
-	// 	);
-		
-	// 	}
-
-    // a = cart.getpayingstring()
-    // cart.payingstring()
-    // console.log('pay button page ' + a)
-    res.redirect("/order");
-	// } else {
-	// 	res.redirect("/login")
-	// }
+ 		   res.redirect("/order");
+	} else {
+		res.redirect("/login")
+	}
   });
 });
 
