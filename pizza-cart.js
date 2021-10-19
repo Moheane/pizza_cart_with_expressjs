@@ -10,6 +10,7 @@ module.exports = function cart() {
     var toogles = '';
     let orderlist = [];
     let payString ='pay';
+
     // var dis = '';
 
 

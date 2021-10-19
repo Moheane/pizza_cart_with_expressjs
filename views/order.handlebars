@@ -6,6 +6,7 @@
                 <tr >
                     <td>Id</td>
                     <td>Amont</td>
+                     <td>Status</td>
                     <td>Action</td>
                 </tr>
             </thead>
@@ -15,6 +16,7 @@
         
                     <td>{{order_id}}</td>
                     <td>{{payment}}</td>
+                    <td>{{order_status}}</td>
                     <td ><a href="/orderaction/{{order_id}} " class="orderaction">{{order_status}}</a></td>
                 </tr>
                 {{/each}}

@@ -168,6 +168,7 @@ open({
   app.get("/order", async function (req, res) {
     if (req.session.username) {
 		pays = cart.getpayingstring();
+		showb = cart.getshowbtn()
     // hide = cart.getshowbtn();
     orders = await db.all(
       "select * from ordertbable where username = ?",
@@ -177,7 +178,8 @@ open({
 
     res.render("order", {
       orders: orders,
-      pays: pays
+      pays: pays,
+	  getshow: showb
     });
 	} else{
 		res.redirect('/login')
@@ -202,6 +204,7 @@ open({
   app.get("/login", function (req, res) {
     res.render("login");
   });
+
 
   app.post("/login", function (req, res) {
     if (req.body.username) {
@@ -243,13 +246,22 @@ open({
 		console.log(results)
 		console.log('button is: pay')
 		} else if (bc.order_status === "collect") {
+		
+		
 			results = await db.run(
 				"update ordertbable set order_status=? where order_id =?",
 				'collected',dvalue
 			);
-		
+
 			console.log(results)
-			console.log('button is: collect')
+			console.log(cart.getshowbtn())
+			console.log('button is: collected')
+		}
+
+		else if (bc.order_status === "collected") {
+			cart.showbtn()
+			console.log(cart.getshowbtn())
+			console.log('button is: deleted')
 		}
 
  		   res.redirect("/order");
@@ -257,6 +269,8 @@ open({
 		res.redirect("/login")
 	}
   });
+
+  
 });
 
 // start  the server and start listening for HTTP request on the PORT number specified...
