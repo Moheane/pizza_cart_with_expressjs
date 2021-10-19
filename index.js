@@ -162,10 +162,13 @@ open({
 	}
   });
 
+
+
+
   app.get("/order", async function (req, res) {
     if (req.session.username) {
 		pays = cart.getpayingstring();
-    hide = cart.getshowbtn();
+    // hide = cart.getshowbtn();
     orders = await db.all(
       "select * from ordertbable where username = ?",
       req.session.username
@@ -174,13 +177,17 @@ open({
 
     res.render("order", {
       orders: orders,
-      pays: pays,
-      hide: hide,
+      pays: pays
     });
 	} else{
 		res.redirect('/login')
 	}
   });
+
+
+
+
+
 
   app.get("/logout", function (req, res) {
     req.session.destroy(function (err) {
@@ -214,39 +221,44 @@ open({
     res.redirect("/");
   });
 
-  app.post("/orderaction", async function (req, res) {
-	  cart.payingstring()
-    if (req.session.username) {
-		// cart.payingstring()
-		// bc = await db.get(
-		// 	"select order_id from ordertbable where order_id =?", 59
-		// );
-		if (req.body.orderbtn === "pay") {
-			cart.payingstring()
-		// console.log(dataform+ "pressed pay id " + bc);
-		// results = await db.exec(
-		// 	"update ordertbable set order_status=? where order_id =?",
-		// 	"collect",
-		// 	dataform
-		// );
-		} else if (req.body.orderbtn === "collect") {
-			cart.payingstring()
-		// console.log("pressed collect");
-		// results = await db.exec(
-		// 	"update ordertbable set order_status=? where order_id =?",
-		// 	"collect",
-		// 	dataform
-		// );
+  app.get("/orderaction/:id", async function (req, res) {
+	var dvalue = req.params.id
+	console.log(dvalue)
+	  
+    // if (req.session.username) {
 		
-		}
+
+
+	// 	cart.payingstring()
+	// 	bc = await db.get(
+	// 		"select order_id from ordertbable where order_id =?", 59
+	// 	);
+	// 	if (req.body.orderbtn === "pay") {
+	// 		cart.payingstring()
+	// 	console.log(dataform+ "pressed pay id " + bc);
+	// 	results = await db.exec(
+	// 		"update ordertbable set order_status=? where order_id =?",
+	// 		"collect",
+	// 		dataform
+	// 	);
+	// 	} else if (req.body.orderbtn === "collect") {
+	// 		cart.payingstring()
+	// 	console.log("pressed collect");
+	// 	results = await db.exec(
+	// 		"update ordertbable set order_status=? where order_id =?",
+	// 		"collect",
+	// 		dataform
+	// 	);
+		
+	// 	}
 
     // a = cart.getpayingstring()
     // cart.payingstring()
     // console.log('pay button page ' + a)
     res.redirect("/order");
-	} else {
-		res.redirect("/login")
-	}
+	// } else {
+	// 	res.redirect("/login")
+	// }
   });
 });
 

@@ -176,14 +176,12 @@ module.exports = function cart() {
     }
 
     function payingstring() {
-        if (payString === '') {
-            payString = 'pay'
-        } else if (payString === 'pay') {
+        if (payString === 'pay') {
             payString = 'collect'
-        }
-        else if (payString === 'collect') {
+        } else if (payString === 'collect') {
             payString = 'collected'
         }
+        
     }
 
     function getpayingstring() {
